@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8" />
+	<title>Into the Forest</title>
+
+	<script src="Scripts/jquery-3.3.1.min.js"></script>
+	<script src="Scripts/angular.min.js"></script>
+	<script src="Scripts/angular-route.min.js"></script>
+	<script src="Scripts/angular-animate.min.js"></script>
+
+	<script src="lib/app.js"></script>
+	<script src="lib/config.js"></script>
+	<script src="lib/directives.js"></script>
+	<script src="lib/filters.js"></script>
+	<script src="lib/services.js"></script>
+
+	<script src="lib/controllers/main.js"></script>
+	<script src="lib/controllers/home.js"></script>
+	<script src="lib/controllers/showdown.js"></script>
+	<script src="lib/controllers/predation.js"></script>
+
+	<script src="resources/cards.js"></script>
+	<script src="resources/locale-en-US.js"></script>
+
+	<link href="Styles/main.css" rel="stylesheet" />
+	<link href="Styles/animation.css" rel="stylesheet" />
+
+	<base href="./" />
+</head>
+<body ng-controller="MainController" ng-cloak>
+	<div id="debug" ng-show="options.debug">
+		<div ng-repeat="msg in debugmsgs" ng-class="msg.type">{{msg.msg}}</div>
+	</div>
+
+	<div id="tabletop" ng-class="{debug: options.debug}" ng-view>
+	</div>
+</body>
+</html>

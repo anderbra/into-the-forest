@@ -1,0 +1,145 @@
+﻿.card.ng-enter {
+	transition: all ease .75s;
+	opacity: 0;
+}
+
+.card.ng-enter-active {
+	opacity: 1;
+}
+
+.card.ng-leave {
+	transition: all ease .5s;
+	opacity: 1;
+}
+
+.card.ng-leave-active {
+	opacity: 0;
+}
+
+.player.north .card.ng-enter {
+	transform: translate(0, 100%);
+}
+
+.player.north .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.north .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.north .card.ng-leave-active {
+	transform: translate(0, 100%);
+}
+
+.player.south .card.ng-enter {
+	transform: translate(0, -100%);
+}
+
+.player.south .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.south .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.south .card.ng-leave-active {
+	transform: translate(0, -100%);
+}
+
+.player.west .card.ng-enter {
+	transform: translate(100%, 0);
+}
+
+.player.west .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.west .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.west .card.ng-leave-active {
+	transform: translate(100%, 0);
+}
+
+.player.east .card.ng-enter {
+	transform: translate(-100%, 0);
+}
+
+.player.east .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.east .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.east .card.ng-leave-active {
+	transform: translate(-100%, 0);
+}
+
+.player.northwest .card.ng-enter {
+	transform: translate(50%, 100%);
+}
+
+.player.northwest .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.northwest .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.northwest .card.ng-leave-active {
+	transform: translate(50%, 100%);
+}
+
+.player.northeast .card.ng-enter {
+	transform: translate(-50%, 100%);
+}
+
+.player.northeast .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.northeast .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.northeast .card.ng-leave-active {
+	transform: translate(-50%, 100%);
+}
+
+.player.southwest .card.ng-enter {
+	transform: translate(50%, -100%);
+}
+
+.player.southwest .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.southwest .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.southwest .card.ng-leave-active {
+	transform: translate(50%, -100%);
+}
+
+.player.southeast .card.ng-enter {
+	transform: translate(-50%, -100%);
+}
+
+.player.southeast .card.ng-enter-active {
+	transform: translate(0, 0);
+}
+
+.player.southeast .card.ng-leave {
+	transform: translate(0, 0);
+}
+
+.player.southeast .card.ng-leave-active {
+	transform: translate(-50%, -100%);
+}

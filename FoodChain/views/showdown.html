@@ -1,0 +1,48 @@
+﻿<div id="showdown">
+	<div id="player1" class="player north" ng-class="{'active': state.order[state.turn] == 0 && state.winner == -1}">
+		<div class="hand">
+			<ul class="cards">
+				<li ng-repeat="card in state.players[0].hand" class="card">
+					<div fc-card card="card" cardclick="playCard(0, $index)"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="won">
+			<div class="score">{{state.players[0].score}}</div>
+			<ul class="cards">
+				<li ng-repeat="card in state.players[0].stack" class="card">
+					<div fc-card card="card"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="inplay" class="">
+		<div id="timer"><span id="gameclock">{{state.gameclock | toTime}}</span></div>
+		<div ng-show="state.winner != -1" class="gameover">
+			GAME OVER!!!!<br /><a ng-click="init(true)">Start a new game</a>
+		</div>
+		<ul class="cards">
+			<li ng-repeat="played in state.trick" class="card">
+				<div ng-show="$index - state.round * state.order.length < 0" fc-card card="played.card"></div>
+				<div ng-show="$index - state.round * state.order.length >= 0" fc-cardback></div>
+			</li>
+		</ul>
+	</div>
+	<div id="player2" class="player south" ng-class="{'active': state.order[state.turn] == 1 && state.winner == -1}">
+		<div class="hand">
+			<ul class="cards">
+				<li ng-repeat="card in state.players[1].hand" class="card">
+					<div fc-card card="card" cardclick="playCard(1, $index)"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="won">
+			<div class="score">{{state.players[1].score}}</div>
+			<ul class="cards">
+				<li ng-repeat="card in state.players[1].stack" class="card">
+					<div fc-card card="card"></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

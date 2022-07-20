@@ -1,0 +1,220 @@
+﻿html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#debug {
+	position: fixed;
+	height: 99px;
+	width: 100%;
+	margin: 0;
+	overflow-y: auto;
+	border-bottom: 1px dashed #999;
+	background: #ccc;
+	top: 0;
+}
+
+	#debug .info {
+		color: #000;
+	}
+
+	#debug .error {
+		color: #f00;
+	}
+
+.card img {
+	width: 100px;
+}
+
+#tabletop {
+	height: 100%;
+	width: 100%;
+	background-color: paleturquoise;
+	box-sizing: border-box;
+}
+
+	#tabletop.debug {
+		padding-top: 100px;
+	}
+
+a:link, a:visited, a:active, a[ng-click] {
+	color: blue;
+	text-decoration: none;
+}
+a:hover, a[ng-click]:hover {
+	text-decoration: underline;
+}
+
+#showdown {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+	#showdown .player {
+		width: 100%;
+		border: 1px solid black;
+		border-width: 1px 0;
+		height: 40%;
+		min-height: 100px;
+		position: relative;
+		overflow: auto;
+	}
+		#showdown .player .hand {
+			display: inline-block;
+			width: 80%;
+		}
+		#showdown .player .won {
+			display: inline-block;
+			width: 19%;
+			border-left: 1px solid black;
+			vertical-align: top;
+		}
+	#showdown .player.active {
+		background-color: mediumturquoise;
+	}
+
+	#showdown #inplay {
+		width: 100%;
+		height: 20%;
+	}
+	
+	#showdown .score {
+		text-align: center;
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+#predation {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+	#predation .row {
+		width: 100%;
+		border-top: 1px solid black;
+		height: 33%;
+		min-height: 100px;
+		position: relative;
+		overflow: auto;
+		display: flex;
+		flex-direction: row;
+		height: 100%;
+	}
+
+	#predation .player {
+		display: inline-block;
+		position: relative;
+	}
+
+	#predation #toprow .player, #predation #bottomrow .player {
+		width: 49%;
+		border-right: 1px solid black;
+	}
+	#predation #midrow .player {
+		width: 30%;
+		border-right: 1px solid black;
+	}
+	
+	#predation .player .hand {
+		display: inline-block;
+		width: 80%;
+	}
+
+	#predation .player .won {
+		display: inline-block;
+		width: 19%;
+		border-left: 1px solid black;
+		vertical-align: top;
+	}
+
+	#predation .player.active {
+		background-color: mediumturquoise;
+	}
+
+	#predation #inplay {
+		width: 40%;
+	}
+
+	#predation .score {
+		text-align: center;
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+#timer {
+	float: right;
+	width: 100px;
+	text-align: right;
+	padding-right: 5px;
+}
+#gameclock {
+}
+#playclock {
+	color: red;
+}
+
+ul.cards {
+	list-style: none;
+	margin: 0;
+}
+
+.card {
+	display: inline-block;
+	position: relative;
+	width: 150px;
+	min-height: 96%;
+	border: 1px solid green;
+	border-radius: 7px;
+	background-color: #fff;
+}
+.best {
+	border: 2px solid red;
+}
+.card-bg {
+	display: block;
+	background: transparent url('') center top no-repeat;
+	background-size: 100%;
+	height: 150px;
+	vertical-align: top;
+}
+	.card-bg > div {
+		display: inline-block;
+		text-shadow: 1px 1px 0px #fff;
+	}
+	.card-bg .name {
+		float: left;
+		width: 80%;
+		font-size: 1em;
+	}
+	.card-bg .type {
+		float: left;
+		width: 100%;
+		font-size: 1em;
+	}
+	.card-bg .energy {
+		float: left;
+		width: 20%;
+		font-weight: bold;
+		text-align: right;
+	}
+	.card-bg .eats, .card-bg .eaten {
+		float: left;
+		width: 50%;
+	}
+		.card-bg .eats > ul, .card-bg .eaten > ul {
+			display: none;
+			position: absolute;
+			border: 1px solid blue;
+			background-color: #ccf;
+			z-index: 500;
+		}
+		.card-bg .eats:hover > ul, .card-bg .eaten:hover > ul {
+			display: block;
+		}
+.card-bg.cardback {
+	background-image: url('../resources/card-back.png');
+}

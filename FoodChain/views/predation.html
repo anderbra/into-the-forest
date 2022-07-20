@@ -1,0 +1,139 @@
+﻿<div id="predation">
+	<div id="toprow" class="row">
+		<div id="player1" class="player northwest" ng-class="{'active': classActive(0)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[0].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(0, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[0].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[0].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="player2" class="player northeast" ng-class="{'active': classActive(1)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[1].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(1, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[1].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[1].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="midrow" class="row">
+		<div id="player3" class="player west" ng-class="{'active': classActive(2)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[2].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(2, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[2].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[2].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="inplay" class="">
+			<div ng-show="state.winner != -1" class="gameover">
+				GAME OVER!!!!<br /><a ng-click="init(true)">Start a new game</a>
+			</div>
+            <div ng-show="state.winner == -1" id="timer">
+				<span id="gameclock">{{state.gameclock | toTime}}</span> 
+				<span id="playclock">{{state.playclock | toTime}}</span>
+				<span ng-show="state.clockpaused && state.gameclock > 0">&#9208;</span>
+			</div>
+			<div id="actionmenu">
+				<a ng-click="playShowdown()">{{i18n.menu.showdown.one}}</a>
+				<a ng-click="playChallenge()">{{i18n.menu.challenge.one}}</a>
+			</div>
+			<div id="challengepicker" ng-show="state.battletype == 'challenge' && state.challengetarget == ''">
+				<select ng-options="item.id as item.name | toProperCase disable when item.id == 'death' && state.wondeath for item in decklist" ng-model="state.challengetarget">
+					<option value="">-- choose target --</option>
+				</select>
+			</div>
+			<ul class="cards">
+				<li ng-repeat="played in state.trick" class="card">
+					<div ng-show="$index - state.round * state.order.length < 0" fc-card card="played.card"></div>
+					<div ng-show="$index - state.round * state.order.length >= 0" fc-cardback></div>
+				</li>
+			</ul>
+		</div>
+
+		<div id="player4" class="player east" ng-class="{'active': classActive(3)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[3].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(3, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[3].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[3].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="bottomrow" class="row">
+		<div id="player5" class="player southwest" ng-class="{'active': classActive(4)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[4].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(4, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[4].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[4].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div id="player6" class="player southeast" ng-class="{'active': classActive(5)}">
+			<div class="hand">
+				<ul class="cards">
+					<li ng-repeat="card in state.players[5].hand" class="card">
+						<div fc-card card="card" cardclick="playCard(5, $index)"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="won">
+				<div class="score">{{state.players[5].score}}</div>
+				<ul class="cards">
+					<li ng-repeat="card in state.players[5].stack" class="card">
+						<div fc-card card="card"></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

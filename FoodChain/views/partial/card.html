@@ -1,0 +1,19 @@
+﻿<div class="card-bg" ng-class="{'best': card.best}" ng-style="{'background-image': 'url(' + card.data.img + ')'}" ng-click="cardclick({player:-1, idx:-1})">
+	<div class="name">{{card.data.name | toProperCase}}</div>
+	<div class="energy">{{card.data.energy}}</div>
+	<div class="type">{{card.data.type | getTypeName | toProperCase}}</div>
+	<div class="eats">
+		<span>Eats</span>
+		<ul>
+			<li ng-show="card.data.eats.length" ng-repeat="species in card.data.eats">{{species | getCardName2 | toProperCase}}</li>
+			<li ng-show="!card.data.eats.length">Nothing</li>
+		</ul>
+	</div>
+	<div class="eaten">
+		Eaten by
+		<ul>
+			<li ng-show="card.data.eaten.length" ng-repeat="species in card.data.eaten">{{species | getCardName2 | toProperCase}}</li>
+			<li ng-show="!card.data.eaten.length">Nothing</li>
+		</ul>
+	</div>
+</div>
